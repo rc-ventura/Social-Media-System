@@ -54,7 +54,7 @@ public class Postagem implements Serializable {
 
    @JsonIgnore
    @ManyToOne
-   @JoinColumn(name = "editor_id")
+   @JoinColumn(name = "id_editor")
    private Editor editor;
     
     

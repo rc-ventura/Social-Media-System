@@ -64,7 +64,7 @@ public class Assunto implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
+    
     public Set<Postagem> getPostagens() {
         return postagens;
     }

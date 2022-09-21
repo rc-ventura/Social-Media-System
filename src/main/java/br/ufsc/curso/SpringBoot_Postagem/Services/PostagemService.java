@@ -1,5 +1,5 @@
 
-package br.ufsc.curso.SprinBoot_Postagem.Services;
+package br.ufsc.curso.SpringBoot_Postagem.Services;
 
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Assunto;
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Comentario;
@@ -66,9 +66,9 @@ public class PostagemService {
     //ADD RELACIONAMENTOS
     
         //Postagem [+ comentario]
-    public Postagem addComentario ( Long idPostagem, Long idComentario){
-        Postagem postagem = postagemRepository.findById(idPostagem).get();
-        Comentario comentario = comentarioRepository.findById(idComentario).get();
+    public Postagem addComentario ( Long id_postagem, Long id_comentario){
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
+        Comentario comentario = comentarioRepository.findById(id_comentario).get();
         
         comentario.setPostagem(postagem);
         comentarioRepository.save(comentario);
@@ -76,9 +76,9 @@ public class PostagemService {
         
     }
        //Postagem [+ assunto]
-    public Postagem addAssunto( Long idPostagem, Long idAssunto){
-        Postagem postagem = postagemRepository.findById(idPostagem).get();
-        Assunto assunto = assuntoRepository.findById(idAssunto).get();
+    public Postagem addAssunto(Long id_postagem, Long id_assunto){
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
+        Assunto assunto = assuntoRepository.findById(id_assunto).get();
         
         postagem.getAssuntos().add(assunto);
         postagemRepository.save(postagem);
@@ -88,9 +88,9 @@ public class PostagemService {
     //REMOVE RELACIONAMENTOS
 
         //Postagem [- comentario]
-    public Postagem removeComentario ( Long idPostagem, Long idComentario){
-        Postagem postagem = postagemRepository.findById(idPostagem).get();
-        Comentario comentario = comentarioRepository.findById(idComentario).get();
+    public Postagem removeComentario(Long id_postagem, Long id_comentario){
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
+        Comentario comentario = comentarioRepository.findById(id_comentario).get();
         
         comentario.setPostagem(null);
         comentarioRepository.save(comentario);
@@ -98,9 +98,9 @@ public class PostagemService {
         
     }
           //Postagem [- assunto]
-    public Postagem removeAssunto( Long idPostagem, Long idAssunto){
-        Postagem postagem = postagemRepository.findById(idPostagem).get();
-        Assunto assunto = assuntoRepository.findById(idAssunto).get();
+    public Postagem removeAssunto(Long id_postagem, Long id_assunto){
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
+        Assunto assunto = assuntoRepository.findById(id_assunto).get();
         
         postagem.getAssuntos().remove(assunto);
         postagemRepository.save(postagem);

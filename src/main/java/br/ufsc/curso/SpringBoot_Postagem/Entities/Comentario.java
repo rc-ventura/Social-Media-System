@@ -1,6 +1,7 @@
 
 package br.ufsc.curso.SpringBoot_Postagem.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
 import javax.persistence.Entity;
@@ -30,8 +31,9 @@ public class Comentario implements Serializable {
     
     //relacionamentos
     
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "postagem_id")
+    @JoinColumn(name = "id_postagem")
     private Postagem postagem;
             
     //construtores
