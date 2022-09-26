@@ -67,8 +67,8 @@ public class PostagemController {
         
     }
     
-    //UPDATE
-    @PutMapping(value = "/postagens{id}")
+    //PUT
+    @PutMapping(value = "/postagens/{id}")
     public ResponseEntity <Postagem> update (@PathVariable Long id, @RequestBody Postagem postagem){
         postagem = postagemService.update(id, postagem);
         return ResponseEntity.ok().body(postagem);
@@ -102,7 +102,7 @@ public class PostagemController {
     
      //REMOVE
      //Postagem [- assunto]
-    @DeleteMapping(value = "/postagens/{id_postagem}/removeAssunto/{id_Assunto}")
+    @DeleteMapping(value = "/postagens/{id_postagem}/removeAssunto/{id_assunto}")
     public ResponseEntity <Postagem> removeAssunto (@PathVariable Long id_postagem, @PathVariable Long id_assunto){
         Postagem postagem = postagemService.removeAssunto(id_postagem, id_assunto);
         return ResponseEntity.ok().body(postagem);

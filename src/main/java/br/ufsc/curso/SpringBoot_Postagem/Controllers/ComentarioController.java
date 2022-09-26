@@ -67,47 +67,14 @@ public class ComentarioController {
         
     }
     
-    //UPDATE
-    @PutMapping(value = "/comentarios{id}")
+    //PUT
+    @PutMapping(value = "/comentarios/{id}")
     public ResponseEntity <Comentario> update (@PathVariable Long id, @RequestBody Comentario comentario){
         comentario = comentarioService.update(id, comentario);
         return ResponseEntity.ok().body(comentario);
     }
-    /*
-    //ADD 
-    //Comentario [+ comentario]
-    @PutMapping(value = "/comentarios/{id_comentario}/addComentario/{id_comentario}")
-    public ResponseEntity <Comentario> addComentario(@PathVariable Long id_comentario, @PathVariable Long id_comentario){
-        Comentario comentario = comentarioService.addComentario(id_comentario, id_comentario);
-        return ResponseEntity.ok().body(comentario);
-    }
+   
     
-    //ADD
-    //Comentario [+ assunto]
-    @PutMapping(value = "/comentarios/{id_comentario}/addAssunto/{id_assunto}")
-    public ResponseEntity <Comentario> addAssunto(@PathVariable Long id_comentario, @PathVariable Long id_assunto){
-        Comentario comentario = comentarioService.addAssunto(id_comentario, id_assunto);
-        return ResponseEntity.ok().body(comentario);
-    }
-    
-    
-    //REMOVE
-    //Comentario [- comentario]
-    @DeleteMapping(value = "/comentarios/{id_comentario}/removeComentario/{id_comentario}")
-    public ResponseEntity <Comentario> removeComentario (@PathVariable Long id_comentario, @PathVariable Long id_comentario){
-        Comentario comentario = comentarioService.removeComentario(id_comentario, id_comentario);
-        return ResponseEntity.ok().body(comentario);
-    
-    }
-    
-     //REMOVE
-     //Comentario [- assunto]
-    @DeleteMapping(value = "/comentarios/{id_comentario}/removeAssunto/{id_Assunto}")
-    public ResponseEntity <Comentario> removeAssunto (@PathVariable Long id_comentario, @PathVariable Long id_assunto){
-        Comentario comentario = comentarioService.removeAssunto(id_comentario, id_assunto);
-        return ResponseEntity.ok().body(comentario);
-
+ 
 }
-    
-*/
-}
+ 

@@ -64,47 +64,31 @@ public class EditorController {
         
     }
     
-    //UPDATE
-    @PutMapping(value = "/editores{id}")
+    //PUT
+    @PutMapping(value = "/editores/{id}")
     public ResponseEntity <Editor> update (@PathVariable Long id, @RequestBody Editor editor){
         editor = editorService.update(id, editor);
         return ResponseEntity.ok().body(editor);
     }
-    /*
-    //ADD
-    //Editor [+ comentario]
-    @PutMapping(value = "/editores/{id_editor}/addComentario/{id_comentario}")
-    public ResponseEntity <Editor> addComentario(@PathVariable Long id_editor, @PathVariable Long id_comentario){
-        Editor editor = editorService.addComentario(id_editor, id_comentario);
-        return ResponseEntity.ok().body(editor);
-    }
+    
     
     //ADD
-    //Editor [+ assunto]
-    @PutMapping(value = "/editores/{id_editor}/addAssunto/{id_assunto}")
-    public ResponseEntity <Editor> addAssunto(@PathVariable Long id_editor, @PathVariable Long id_assunto){
-        Editor editor = editorService.addAssunto(id_editor, id_assunto);
+    //Editor [+ postagem]
+    @PutMapping(value = "/editores/{id_editor}/addPostagem/{id_postagem}")
+    public ResponseEntity <Editor> addPostagem(@PathVariable Long id_editor, @PathVariable Long id_postagem){
+        Editor editor = editorService.addPostagem(id_editor, id_postagem);
         return ResponseEntity.ok().body(editor);
     }
-    
-    
-    //REMOVE
-    //Editor [- comentario]
-    @DeleteMapping(value = "/editores/{id_editor}/removeComentario/{id_comentario}")
-    public ResponseEntity <Editor> removeComentario (@PathVariable Long id_editor, @PathVariable Long id_comentario){
-        Editor editor = editorService.removeComentario(id_editor, id_comentario);
-        return ResponseEntity.ok().body(editor);
-    
-    }
+   
     
      //REMOVE
-     //Editor [- assunto]
-    @DeleteMapping(value = "/editores/{id_editor}/removeAssunto/{id_Assunto}")
-    public ResponseEntity <Editor> removeAssunto (@PathVariable Long id_editor, @PathVariable Long id_assunto){
-        Editor editor = editorService.removeAssunto(id_editor, id_assunto);
+     //Editor [- postagem]
+    @DeleteMapping(value = "/editores/{id_editor}/removePostagem/{id_postagem}")
+    public ResponseEntity <Editor> removePostagem (@PathVariable Long id_editor, @PathVariable Long id_postagem){
+        Editor editor = editorService.removePostagem(id_editor, id_postagem);
         return ResponseEntity.ok().body(editor);
 
 }
-    */
+   
 
 }

@@ -67,48 +67,13 @@ public class AssuntoController {
         
     }
     
-    //UPDATE
+    //PUT
     
-    @PutMapping(value = "/assuntos{id}")
+    @PutMapping(value = "/assuntos/{id}")
     public ResponseEntity <Assunto> update (@PathVariable Long id, @RequestBody Assunto assunto){
         assunto = assuntoService.update(id, assunto);
         return ResponseEntity.ok().body(assunto);
     }
-    /*
-    //ADD
-    //Assunto [+ comentario]
-    @PutMapping(value = "/assuntos/{id_assunto}/addComentario/{id_comentario}")
-    public ResponseEntity <Assunto> addComentario(@PathVariable Long id_assunto, @PathVariable Long id_comentario){
-        Assunto assunto = assuntoService.addComentario(id_assunto, id_comentario);
-        return ResponseEntity.ok().body(assunto);
-    }
-    
-    //ADD
-    //Assunto [+ assunto]
-    @PutMapping(value = "/assuntos/{id_assunto}/addAssunto/{id_assunto}")
-    public ResponseEntity <Assunto> addAssunto(@PathVariable Long id_assunto, @PathVariable Long id_assunto){
-        Assunto assunto = assuntoService.addAssunto(id_assunto, id_assunto);
-        return ResponseEntity.ok().body(assunto);
-    }
-    
-    
-    //REMOVE
-    //Assunto [- comentario]
-    @DeleteMapping(value = "/assuntos/{id_assunto}/removeComentario/{id_comentario}")
-    public ResponseEntity <Assunto> removeComentario (@PathVariable Long id_assunto, @PathVariable Long id_comentario){
-        Assunto assunto = assuntoService.removeComentario(id_assunto, id_comentario);
-        return ResponseEntity.ok().body(assunto);
-    
-    }
-    
-     //REMOVE
-     //Assunto [- assunto]
-    @DeleteMapping(value = "/assuntos/{id_assunto}/removeAssunto/{id_Assunto}")
-    public ResponseEntity <Assunto> removeAssunto (@PathVariable Long id_assunto, @PathVariable Long id_assunto){
-        Assunto assunto = assuntoService.removeAssunto(id_assunto, id_assunto);
-        return ResponseEntity.ok().body(assunto);
-
-}
-    */
+   
 
 }

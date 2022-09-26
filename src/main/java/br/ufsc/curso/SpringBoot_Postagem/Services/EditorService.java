@@ -2,9 +2,9 @@
 package br.ufsc.curso.SpringBoot_Postagem.Services;
 
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Editor;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.AssuntoRepository;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.ComentarioRepository;
+import br.ufsc.curso.SpringBoot_Postagem.Entities.Postagem;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.EditorRepository;
+import br.ufsc.curso.SpringBoot_Postagem.Repositories.PostagemRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +21,7 @@ public class EditorService {
     private EditorRepository editorRepository;
     
     @Autowired
-    private ComentarioRepository comentarioRepository;
-    
-    @Autowired
-    private AssuntoRepository assuntoRepository;
+    private PostagemRepository postagemRepository;
     
     
     
@@ -58,50 +55,33 @@ public class EditorService {
         editorEntity.setSenha(editor.getSenha());
         return editorRepository.save(editorEntity);
     }
-    /*
+    
     //ADD RELACIONAMENTOS
     
-        //Editor [+ comentario]
-    public Editor addComentario ( Long id_editor, Long id_comentario){
+        //Editor [+ postagem]
+    public Editor addPostagem( Long id_editor, Long id_postagem){
         Editor editor = editorRepository.findById(id_editor).get();
-        Comentario comentario = comentarioRepository.findById(id_comentario).get();
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
         
-        comentario.setEditor(editor);
-        comentarioRepository.save(comentario);
+       
+        postagem.setEditor(editor);
+        postagemRepository.save(postagem);
         return editor;
         
     }
-       //Editor [+ assunto]
-    public Editor addAssunto(Long id_editor, Long id_assunto){
-        Editor editor = editorRepository.findById(id_editor).get();
-        Assunto assunto = assuntoRepository.findById(id_assunto).get();
-        
-        editor.getAssuntos().add(assunto);
-        editorRepository.save(editor);
-        return editor;
-    }
+       
     
     //REMOVE RELACIONAMENTOS
 
-        //Editor [- comentario]
-    public Editor removeComentario(Long id_editor, Long id_comentario){
+        //Editor [- postagem]
+    public Editor removePostagem(Long id_editor, Long id_postagem){
         Editor editor = editorRepository.findById(id_editor).get();
-        Comentario comentario = comentarioRepository.findById(id_comentario).get();
+        Postagem postagem = postagemRepository.findById(id_postagem).get();
         
-        comentario.setEditor(null);
-        comentarioRepository.save(comentario);
+        postagem.setEditor(null);
+        postagemRepository.save(postagem);
         return editor;
         
     }
-          //Editor [- assunto]
-    public Editor removeAssunto(Long id_editor, Long id_assunto){
-        Editor editor = editorRepository.findById(id_editor).get();
-        Assunto assunto = assuntoRepository.findById(id_assunto).get();
-        
-        editor.getAssuntos().remove(assunto);
-        editorRepository.save(editor);
-        return editor;
-    
-}*/
 
 }
