@@ -4,11 +4,7 @@
 
 
 
-​														UML Representation
-
-
-
-![](C:\Users\RC_Ve\OneDrive\Documentos\NetBeansProjects\BackEndSpring_Aula\BackEnd_SpringBoot_Postagem\UML representation.png)
+More info about project :  UML representation.png
 
 
 
