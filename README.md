@@ -12,6 +12,7 @@
 
 
 
+
 #### Technologies:
 
 JAVA
@@ -21,6 +22,7 @@ SPRING BOOT
 JPA
 
 HIBERNATE
+
 
 
 
