@@ -45,8 +45,8 @@ public class Setup implements CommandLineRunner{
        
     //adicionando postagem
     
-       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto1"); 
-       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2"); 
+       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto 1"); 
+       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2 e Texto4"); 
        Postagem post3 = new Postagem(null, Instant.parse("2022-08-20T19:53:07Z"), "Minha Viagem", "Texto3"); 
        Postagem post4 = new Postagem(null, Instant.parse("2022-02-20T19:53:07Z"), "Take On Time", "Texto4"); 
        Postagem post5 = new Postagem(null, Instant.parse("2022-01-20T19:53:07Z"), "Peace", "Texto5"); 

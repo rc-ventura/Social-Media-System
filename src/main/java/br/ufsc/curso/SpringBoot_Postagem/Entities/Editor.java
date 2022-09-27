@@ -75,6 +75,12 @@ public class Editor implements Serializable {
         return postagens;
     }
     
+    // funcoes especificas
+    
+    public Double getTotalPostagens(){
+        double num = postagens.size();
+        return num;
+    }
     
     
     //hash e equals 

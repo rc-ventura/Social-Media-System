@@ -124,7 +124,15 @@ public class Postagem implements Serializable {
         this.editor = editor;
     }
     
+  // funcoes especificas
     
+    public Double getTotalPalavras(){
+        String texto = this.texto;
+        String[] words = texto.split("\\s+");   //funcao split - quebra a string pelos espaços em brancos
+        double num = words.length;             // armazena em um array e faz a contagem pelo tamanh odo array
+        return num;
+    }
+        
     
     // hash e equals
 

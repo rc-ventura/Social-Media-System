@@ -8,6 +8,8 @@ import br.ufsc.curso.SpringBoot_Postagem.Repositories.AssuntoRepository;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.ComentarioRepository;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.PostagemRepository;
 import java.util.List;
+import java.util.NoSuchElementException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,9 +40,13 @@ public class PostagemService {
     }
    
     //GET{id}
-    public Postagem findById (Long Id){
-        return postagemRepository.findById(Id).get();  
-    // fazer o tratamento de exception
+    public Postagem findById (Long  id){
+      try {
+           return postagemRepository.findById(id).get();  
+       }catch (NoSuchElementException ex){
+           
+           throw new EntityNotFoundException ("Objeto não encontrado Postagem id: " + id );
+       }
     }
     
     //POST
@@ -51,7 +57,7 @@ public class PostagemService {
     //DELETE
     public void delete (Long id){
        postagemRepository.deleteById(id);
-    } // fazer um tratamento de exception
+    }
     
     //PUT
     public Postagem update (Long id, Postagem postagem){
