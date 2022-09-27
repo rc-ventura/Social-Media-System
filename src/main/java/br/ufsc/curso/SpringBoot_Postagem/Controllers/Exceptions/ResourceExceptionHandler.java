@@ -27,9 +27,10 @@ public class ResourceExceptionHandler {
         return  ResponseEntity.status(HttpStatus.NOT_FOUND).body( "acesso aos dados de resultado vazio\n" + ex.getMessage());
     }
 
-    // excecoes oneToMany
-    // remover um editor com postagem associadas
-     // remover umas postagem com comentarios associados 
+    // excecoes relacionais
+    // remover um assunto com postagem associadas   @manyTomany
+     // remover umas postagem com comentarios associados @oneToMany
+    // remover editor associado com postagens  @oneToManay
     
      @ExceptionHandler(value = DataIntegrityViolationException.class)
      public ResponseEntity<String> dataIntegrityViolationException(DataIntegrityViolationException ex ) {
