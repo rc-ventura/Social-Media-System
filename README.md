@@ -26,7 +26,7 @@ HIBERNATE
 
 
 
-**GET: /entities
+**GET: /entities**
 
 * /postagens	           http://localhost:8080/postagens
 
@@ -38,7 +38,7 @@ HIBERNATE
 
 
 
-**GET: /entities/{id}
+**GET: /entities/{id}**
 
 *  /postagens/{id}       http://localhost:8080/postagens/1
 
@@ -50,7 +50,7 @@ HIBERNATE
 
 
 
-**POST: /entities
+**POST: /entities**
 
 * /postagens	            http://localhost:8080/postagens
 
@@ -62,7 +62,7 @@ HIBERNATE
 
 
 
-**PUT: /entities/{id}
+**PUT: /entities/{id}**
 
 *  /postagens/{id}       http://localhost:8080/postagens/1
 
@@ -74,7 +74,7 @@ HIBERNATE
 
 
 
-**DELETE : /entities/{id}
+**DELETE : /entities/{id}**
 
 *  /postagens/{id}        http://localhost:8080/postagens/1
 
@@ -89,7 +89,9 @@ HIBERNATE
 * RELATIONSHIP
 
 
-**PUT: /entity1/{id}/addEntity2/{id}
+
+**PUT: /entity1/{id}/addEntity2/{id}**
+
 
 
 Postagem + Comentario        http://localhost:8080/postagens/1/addComentario/4
@@ -100,7 +102,8 @@ Editor   +  Postagem         http://localhost:8080/editores/1/addPostagem/4
 
 
 
-**DELETE: /entity1/{id}/removeEntity2/{id}
+**DELETE: /entity1/{id}/removeEntity2/{id}**
+
 
 
  Postagem - Comentario        http://localhost:8080/postagens/1/removeComentario/4
