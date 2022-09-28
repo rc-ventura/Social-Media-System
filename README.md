@@ -1,6 +1,6 @@
 ## 💻 Backend Spring Data Social Media Project 
 
- ### API REST FULL - CRUD
+ ### API REST FULL - CRUD (Simulando um sistema de redes sociais)
 
 
 
