@@ -4,7 +4,9 @@
 
 
 
-More info about project :  UML representation.png
+More info about project : 
+
+UML representation.png: https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png
 
 
 
