@@ -56,12 +56,15 @@ public class PostagemService {
     }
     //DELETE
     public void delete (Long id){
+        
+        
        postagemRepository.deleteById(id);
     }
     
     //PUT
     public Postagem update (Long id, Postagem postagem){
         Postagem postagemEntity = postagemRepository.getReferenceById(id);
+        
         postagemEntity.setData(postagem.getData());
         postagemEntity.setTitulo(postagem.getTitulo());
         postagemEntity.setTitulo(postagem.getTitulo());
