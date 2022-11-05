@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html  lang="en">
+    <head>
+        <title>API REST - Spring Data - JQuery -</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- BootStrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+    </head>
+    <body>
+       
+        <div><h3>API REST - Java Spring Data - JQuery</h3></div>
+        
+                    <br>
+
+           <!-- Formulário para o CRUD -->       
+                    
+        <form id="formUser">
+            
+         
+             <div class="input-group flex-nowrap">
+            <span class="input-group-text" >Id</span>
+            <input type="text" class="form-control" id="id" readonly="readonly"
+                    aria-label="Id" aria-describedby="addon-wrapping">
+            </div>
+                        <br>    
+     
+                        
+                                 <div class="input-group flex-nowrap">
+            <span class="input-group-text">Nome</span>
+             <input type="text" class="form-control" id="username" placeholder="Informe seu nome" 
+                    aria-label="username" aria-describedby="addon-wrapping">
+            </div>
+        
+                        <br>
+   
+                        
+                        
+             <div class="input-group flex-nowrap">
+            <span class="input-group-text">@</span>
+             <input type="text" class="form-control" id="login"  placeholder="Informe seu @" 
+                    aria-label="login" aria-describedby="addon-wrapping">
+             </div>
+                         <br>
+                        
+                        
+                        
+               <div class="input-group flex-nowrap">
+            <span class="input-group-text">Senha</span>
+            <input type="password" class="form-control" id="senha" placeholder="Crie uma senha" 
+                    aria-label="titulo" aria-describedby="addon-wrapping">
+            </div>
+                        <br>
+                        
+                                         
+                         
+<!--            <div class="input-group flex-nowrap">
+            <span class="input-group-text"  >Data</span>
+            <input type="date" class="form-control" id="date" 
+                    aria-label="data" aria-describedby="addon-wrapping">
+            </div>
+                        <br>-->
+<!--                       
+            <div class="input-group">
+                <span class="input-group-text">Texto</span>
+             <textarea class="form-control" id="text" placeholder="Escreve aqui seu texto"
+                       aria-label="text"></textarea>
+            </div>
+                        <br>-->
+           
+                    
+         </form>
+                    
+        <button type="button" class="btn btn-primary" 
+                onclick="document.getElementById('formUser').reset();">Novo</button>           
+
+        <button type="button" class="btn btn-success" onclick="CadastraUser()">Salvar</button>
+        
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
+                data-bs-target="#ModalPesquisaUser">Pesquisar</button>
+
+          
+       <!-- Menu Modal para Listar Usuários  -->
+        
+        <div class="modal fade" id="ModalPesquisaUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ModalPesquisaUser">Pesquisar por Usuários</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipientname" class="col-form-label">Por Nome:</label>
+            <p><input type="text" class="form-control" id="recipient-name"></p>
+            <button type="button" class="btn btn-info">Buscar</button>
+            <br>
+            <br>
+            <label for="recipient-login" class="col-form-label">Por @:</label>
+            <p><input type="text" class="form-control" id="recipient-login"></p>
+             <button type="button" class="btn btn-info">Buscar</button>
+
+          </div>
+        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" 
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        
+        <!-- BootStrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+            
+         <!-- JS -->
+         
+         <script type="text/javascript">
+             function CadastraUser(){
+                 
+                 var id = $("#id").val();
+                 var nome = $("#username").val();
+                 var login = $("#login").val();
+                 var senha = $("#senha").val();
+                 
+                 
+               //AJAX
+               
+               $.ajax({
+               method: "POST",
+               url: "usuarios",
+               data: JSON.stringify({id:id, nome:nome, login:login, senha:senha}),
+               contentType: "application/json; charset=utf-8",
+               success: function (response){
+                   $("#id").val(response.id);
+                   alert("Gravou com sucesso!");}
+               
+           }).fail(function (xhr, status, errorThrown){
+                   alert("Erro ao gravar: " + xhr.responseText);
+           });
+               
+                 
+             }
+             
+        </script>
+        
+            <br>
+            <br>
+            
+            <footer>&COPY; <a><a href="https://github.com/rc-ventura" target="_blank">By Rafael Ventura</a> </footer>
+    </body>
+</html>
