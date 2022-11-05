@@ -4,18 +4,9 @@ package br.ufsc.curso.SpringBoot_Postagem.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
  *
@@ -54,8 +45,8 @@ public class Postagem implements Serializable {
 
    @JsonIgnore
    @ManyToOne
-   @JoinColumn(name = "id_editor")
-   private Editor editor;
+   @JoinColumn(name = "id_usuario")
+   private Usuario usuario;
     
     
     //construtores
@@ -64,12 +55,12 @@ public class Postagem implements Serializable {
     public Postagem (){}
     
     
-    public Postagem(Long id, Instant data, String titulo, String texto) {
+    public Postagem(Long id, Instant data, String titulo, String texto, Usuario usuario) {
         this.id = id;
         this.data = data;
         this.titulo = titulo;
         this.texto = texto;
-        this.editor = editor;
+        this.usuario = usuario;
     }
 
     
@@ -116,12 +107,12 @@ public class Postagem implements Serializable {
         return comentarios;
     }
 
-    public Editor getEditor() {
-        return editor;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setEditor(Editor editor) {
-        this.editor = editor;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     
   // funcoes especificas

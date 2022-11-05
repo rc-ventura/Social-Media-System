@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -44,12 +45,21 @@ public class PostagemController {
     public ResponseEntity <Postagem> findById(@PathVariable Long id){
         Postagem postagem = postagemService.findById(id);
         return ResponseEntity.ok().body(postagem);
+    }
+    
+    //GET {title}- SQL 
+    
+     @GetMapping(value = "/postagens/findTitle/{titulo}")
+    public ResponseEntity <List <Postagem>> findByTitle(@PathVariable String titulo){
+        List <Postagem> postagens = postagemService.findByTitle(titulo.trim().toUpperCase());  // retira os espaços e converte tudo em maiúsculas
+        return ResponseEntity.ok().body(postagens);
         
     }
     
     //POST
     
     @PostMapping(value = "/postagens")
+    @ResponseBody
     public ResponseEntity <Postagem> save (@RequestBody Postagem postagem){
        Postagem savedPostagem = postagemService.save(postagem);
        URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path

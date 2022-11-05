@@ -3,11 +3,11 @@ package br.ufsc.curso.SpringBoot_Postagem.Teste;
 
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Assunto;
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Comentario;
-import br.ufsc.curso.SpringBoot_Postagem.Entities.Editor;
+import br.ufsc.curso.SpringBoot_Postagem.Entities.Usuario;
 import br.ufsc.curso.SpringBoot_Postagem.Entities.Postagem;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.AssuntoRepository;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.ComentarioRepository;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.EditorRepository;
+import br.ufsc.curso.SpringBoot_Postagem.Repositories.UsuarioRepository;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.PostagemRepository;
 import java.time.Instant;
 import java.util.Arrays;
@@ -37,39 +37,44 @@ public class Setup implements CommandLineRunner{
     private ComentarioRepository comentarioRepository;
     
     @Autowired
-    private EditorRepository editorRepository;
+    private UsuarioRepository usuarioRepository;
 
    
     @Override
     public void run(String...args) throws Exception{
        
-    //adicionando postagem
+     
+
+       
+       //adicionando postagem
     
-       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto 1"); 
-       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2 e Texto4"); 
-       Postagem post3 = new Postagem(null, Instant.parse("2022-08-20T19:53:07Z"), "Minha Viagem", "Texto3"); 
-       Postagem post4 = new Postagem(null, Instant.parse("2022-02-20T19:53:07Z"), "Take On Time", "Texto4"); 
-       Postagem post5 = new Postagem(null, Instant.parse("2022-01-20T19:53:07Z"), "Peace", "Texto5"); 
+       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto 1", null); 
+       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2 e Texto4", null); 
+       Postagem post3 = new Postagem(null, Instant.parse("2022-08-20T19:53:07Z"), "Minha Viagem", "Texto3", null); 
+       Postagem post4 = new Postagem(null, Instant.parse("2022-02-20T19:53:07Z"), "Take On Time", "Texto4", null); 
+       Postagem post5 = new Postagem(null, Instant.parse("2022-01-20T19:53:07Z"), "Peace", "Texto5", null); 
 
         
        postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
   
-    //adicionando ceditor
-    
-       Editor ed1 = new Editor(null, "Rafael Ventura", "123mudar"); 
-       Editor ed2 = new Editor(null, "Daniel Ventura", "123mudar"); 
-       Editor ed3 = new Editor(null, "Laura Bender", "123mudar"); 
-       
-       
-      editorRepository.saveAll(Arrays.asList(ed1,ed2,ed3)); //salvando tudo
+   
+         //adicionando usuario
 
-    //associando editores com postagens
     
-        post1.setEditor(ed1);
-        post2.setEditor(ed1);
-        post3.setEditor(ed3);
-        post4.setEditor(ed3);
-        post5.setEditor(ed2);
+         Usuario ed2 = new Usuario(null, "Daniel Ventura","@daniel", "123mudar"); 
+       Usuario ed1 = new Usuario(null, "Rafael Ventura","@arquimedes", "123mudar"); 
+       Usuario ed3 = new Usuario(null, "Laura Bender","@l23", "123mudar"); 
+       
+        usuarioRepository.saveAll(Arrays.asList(ed1,ed2,ed3)); //salvando tudo
+       
+
+    //associando usuarioes com postagens
+    
+        post1.setUsuario(ed1);
+        post2.setUsuario(ed1);
+        post3.setUsuario(ed3);
+        post4.setUsuario(ed3);
+        post5.setUsuario(ed2);
         
      postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
 

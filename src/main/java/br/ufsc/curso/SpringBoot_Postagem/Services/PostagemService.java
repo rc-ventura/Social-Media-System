@@ -49,6 +49,12 @@ public class PostagemService {
        }
     }
     
+    //GET{title} - SQL
+    
+    public List<Postagem> findByTitle(String titulo){
+        return postagemRepository.findByTitle(titulo);
+    }
+    
     //POST
     public Postagem save (Postagem postagem){
         return postagemRepository.save(postagem);
@@ -68,7 +74,7 @@ public class PostagemService {
         postagemEntity.setData(postagem.getData());
         postagemEntity.setTitulo(postagem.getTitulo());
         postagemEntity.setTitulo(postagem.getTitulo());
-        postagemEntity.setEditor(postagem.getEditor());
+        postagemEntity.setUsuario(postagem.getUsuario());
         return postagemRepository.save(postagemEntity);
     }
     

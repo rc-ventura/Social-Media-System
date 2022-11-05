@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
  * @author RC_Ventura
  */
 @Entity
-public class Editor implements Serializable {
+public class Usuario implements Serializable {
         private static final long serialVersionUID = 1L;
 
         //atributos 
@@ -26,21 +26,23 @@ public class Editor implements Serializable {
         private Long id;
         
         private String nome;
+        private String login;
         private String senha;
         
         //relacionamentos 
         
-        @OneToMany(mappedBy = "editor")
+        @OneToMany(mappedBy = "usuario")
         private Set<Postagem> postagens = new HashSet<>();
     
       
         //construtores
 
-    public Editor(){}    
+    public Usuario(){}    
         
-    public Editor(Long id, String nome, String senha) {
+    public Usuario(Long id, String nome, String login, String senha) {
         this.id = id;      
         this.nome = nome;
+        this.login = login;
         this.senha = senha;
     }
         
@@ -64,13 +66,23 @@ public class Editor implements Serializable {
 
   
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    public String getLogin() {
+        return this.login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    
+    
     public Set<Postagem> getPostagens() {
         return postagens;
     }
@@ -103,7 +115,7 @@ public class Editor implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Editor other = (Editor) obj;
+        final Usuario other = (Usuario) obj;
         return Objects.equals(this.id, other.id);
     }
      
