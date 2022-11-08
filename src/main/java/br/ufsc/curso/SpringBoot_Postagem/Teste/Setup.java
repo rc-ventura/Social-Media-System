@@ -1,14 +1,8 @@
 
 package br.ufsc.curso.SpringBoot_Postagem.Teste;
 
-import br.ufsc.curso.SpringBoot_Postagem.Entities.Assunto;
-import br.ufsc.curso.SpringBoot_Postagem.Entities.Comentario;
-import br.ufsc.curso.SpringBoot_Postagem.Entities.Usuario;
-import br.ufsc.curso.SpringBoot_Postagem.Entities.Postagem;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.AssuntoRepository;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.ComentarioRepository;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.UsuarioRepository;
-import br.ufsc.curso.SpringBoot_Postagem.Repositories.PostagemRepository;
+import br.ufsc.curso.SpringBoot_Postagem.Entities.*;
+import br.ufsc.curso.SpringBoot_Postagem.Repositories.*;
 import java.time.Instant;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +42,11 @@ public class Setup implements CommandLineRunner{
        
        //adicionando postagem
     
-       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto 1", null); 
-       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2 e Texto4", null); 
-       Postagem post3 = new Postagem(null, Instant.parse("2022-08-20T19:53:07Z"), "Minha Viagem", "Texto3", null); 
-       Postagem post4 = new Postagem(null, Instant.parse("2022-02-20T19:53:07Z"), "Take On Time", "Texto4", null); 
-       Postagem post5 = new Postagem(null, Instant.parse("2022-01-20T19:53:07Z"), "Peace", "Texto5", null); 
+       Postagem post1 = new Postagem(null,Instant.parse("2022-06-20T19:53:07Z"), "Minhas Ferias", "Texto 1"); 
+       Postagem post2 = new Postagem(null, Instant.parse("2022-07-20T19:53:07Z"), "Minhas Roupas", "Texto2 e Texto4"); 
+       Postagem post3 = new Postagem(null, Instant.parse("2022-08-20T19:53:07Z"), "Minha Viagem", "Texto3"); 
+       Postagem post4 = new Postagem(null, Instant.parse("2022-02-20T19:53:07Z"), "Take On Time", "Texto4"); 
+       Postagem post5 = new Postagem(null, Instant.parse("2022-01-20T19:53:07Z"), "Peace", "Texto5"); 
 
         
        postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
@@ -70,13 +64,13 @@ public class Setup implements CommandLineRunner{
 
     //associando usuarioes com postagens
     
-        post1.setUsuario(ed1);
-        post2.setUsuario(ed1);
-        post3.setUsuario(ed3);
-        post4.setUsuario(ed3);
-        post5.setUsuario(ed2);
+      //  post1.setUsuario(ed1);
+     //   post2.setUsuario(ed1);
+     //   post3.setUsuario(ed3);
+      //  post4.setUsuario(ed3);
+      //  post5.setUsuario(ed2);
         
-     postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
+     //postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
 
       
         

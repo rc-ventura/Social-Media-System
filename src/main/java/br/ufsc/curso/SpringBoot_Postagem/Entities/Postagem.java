@@ -55,12 +55,11 @@ public class Postagem implements Serializable {
     public Postagem (){}
     
     
-    public Postagem(Long id, Instant data, String titulo, String texto, Usuario usuario) {
+    public Postagem(Long id, Instant data, String titulo, String texto) {
         this.id = id;
         this.data = data;
         this.titulo = titulo;
         this.texto = texto;
-        this.usuario = usuario;
     }
 
     

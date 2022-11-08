@@ -38,6 +38,20 @@ public class UsuarioService {
     // fazer o tratamento de exception
     }
     
+     //GET{nome} - SQL
+    
+    public List<Usuario> findByName(String nome){
+        return usuarioRepository.findByName(nome);
+        
+    } 
+    
+    //GET{login} - SQL
+    
+    public List<Usuario> findByLogin(String login){
+        return usuarioRepository.findByLogin(login);
+        
+    } 
+    
     //POST
     public Usuario save (Usuario usuario){
         return usuarioRepository.save(usuario);
