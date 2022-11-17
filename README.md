@@ -1,6 +1,6 @@
 ## 💻 Backend Spring Data Social Media Project 
 
- ### API REST FULL - CRUD (Simulando um sistema de redes sociais)
+ ### API REST FULL - CRUD (Simulando um sistema de rede social)
 
 
 
@@ -8,7 +8,9 @@ More info about project :
 
 UML representation.png: https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png
 
+<img href= " https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png">UML </img>
 
+ 
 
 
 #### Technologies:
