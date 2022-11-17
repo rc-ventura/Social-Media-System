@@ -2,119 +2,38 @@
 
  ### API REST FULL - CRUD (Simulando um sistema de rede social)
 
+<hr>
+
+<br>
+
+<h4> Uml Representation <h4>
+
+​    ![UML ](https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png)
 
 
-More info about project : 
-
-UML representation.png: https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png
-
-<img href= " https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/UML%20representation.png">UML </img>
 
  
 
 
 #### Technologies:
 
-JAVA
+* JAVA
 
-SPRING BOOT
+* SPRING BOOT
 
-JPA
+* JPA
 
-HIBERNATE
-
-
-
-
-### endpoints:
+* HIBERNATE
+* JS
+* Bootstrap
+* jQuery
 
 
 
-**GET: /entities**
 
-* /postagens	           http://localhost:8080/postagens
+### Rest API Front End:
 
-* /assuntos             http://localhost:8080/assuntos
-
-* /comentarios          http://localhost:8080/comentarios
-
-* /editores             http://localhost:8080/editores
-
-
-
-**GET: /entities/{id}**
-
-*  /postagens/{id}       http://localhost:8080/postagens/1
-
-*  /assuntos/{id}        http://localhost:8080/assuntos/1
-
-* /comentarios/{id}      http://localhost:8080/comentarios/1
-
-* /editores/{id}         http://localhost:8080/editores/1
-
-
-
-**POST: /entities**
-
-* /postagens	            http://localhost:8080/postagens
-
-* /assuntos              http://localhost:8080/assuntos
-
-* /comentarios           http://localhost:8080/comentarios
-
-* /editores              http://localhost:8080/editores
-
-
-
-**PUT: /entities/{id}**
-
-*  /postagens/{id}       http://localhost:8080/postagens/1
-
-*  /assuntos/{id}        http://localhost:8080/assuntos/1
-
-*  /comentarios/{id}     http://localhost:8080/comentarios/1
-
-* /editores/{id}         http://localhost:8080/editores/1
-
-
-
-**DELETE : /entities/{id}**
-
-*  /postagens/{id}        http://localhost:8080/postagens/1
-
-*  /assuntos/{id}         http://localhost:8080/assuntos/1
-
-* /comentarios/{id}       http://localhost:8080/comentarios/1
-
-* /editores/{id}          http://localhost:8080/editores/1
-
-
-
-* RELATIONSHIP
-
-
-
-**PUT: /entity1/{id}/addEntity2/{id}**
-
-
-
-Postagem + Comentario        http://localhost:8080/postagens/1/addComentario/4
-
-Postagem +  Assunto          http://localhost:8080/postagens/1/addAssunto/4
-
-Editor   +  Postagem         http://localhost:8080/editores/1/addPostagem/4
-
-
-
-**DELETE: /entity1/{id}/removeEntity2/{id}**
-
-
-
- Postagem - Comentario        http://localhost:8080/postagens/1/removeComentario/4
-
- Postagem - Assunto           http://localhost:8080/postagens/1/removeAssunto/4
-
- Editor  - Postagem           http://localhost:8080/editores/1/removePostagem/4
+![API REST ](https://github.com/rc-ventura/BackEnd_SpringBoot_Social_Media/blob/master/Api%20RestFull-Spring%20Data%20JQuery.png)
 
 
 
