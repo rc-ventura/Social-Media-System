@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,8 +32,8 @@ public class Usuario implements Serializable {
         
         //relacionamentos 
         
-        @OneToMany(mappedBy = "usuario")
-        private Set<Postagem> postagens = new HashSet<>();
+        @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+        private Set<Postagem> postagens = new HashSet<>();    //remove em cascata tudo e  remove os relacionamentos sem associações
     
       
         //construtores
