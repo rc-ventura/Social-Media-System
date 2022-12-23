@@ -2,22 +2,29 @@
 package br.ufsc.curso.SpringBoot_Postagem.Entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
  * @author RC_Ventura
  */
 @Entity
-public class Usuario implements Serializable {
+public class Usuario implements UserDetails {                                    // implementacao para usar metodos do Spring Security - Também implementa serializable
         private static final long serialVersionUID = 1L;
 
         //atributos 
@@ -36,6 +43,14 @@ public class Usuario implements Serializable {
         private Set<Postagem> postagens = new HashSet<>();    //remove em cascata tudo e  remove os relacionamentos sem associações
     
       
+        @OneToMany (fetch = FetchType.EAGER)
+        @JoinTable(name = "usuarios_role", uniqueConstraints = @UniqueConstraint(name = "unique_role_user", columnNames =  {"usuario_id", "role_id"} ), //Criando uma tabela usuarios_role com FK usuario_id
+            joinColumns = @JoinColumn(name = "usuario_id", unique = false),                                 // + FK role_id  = Composite Key
+            inverseJoinColumns = @JoinColumn(name = "role_id", unique = false, updatable = false ) )          // UniqueConstraint garate que cada linha será única  ( add constraint on the table or on the column (unique = true)
+         private Set<Role> roles;                                                                            //lista de papeis para acessos
+                                                                                                               // unique = false -> Podemos repetir o usuário mas com roles diferentes
+        
+                                                                                                               // updatetable -> não atualiza o table. Os acessos não podem ser atualizados.
         //construtores
 
     public Usuario(){}    
@@ -87,6 +102,16 @@ public class Usuario implements Serializable {
     public Set<Postagem> getPostagens() {
         return postagens;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+    
+    
     
     // funcoes especificas
     
@@ -122,7 +147,43 @@ public class Usuario implements Serializable {
      
     // funcoes 
     
-  //  public Double getTotalPostagens(){}
+  // Spring Security
+    
+    
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
     
     
 }
