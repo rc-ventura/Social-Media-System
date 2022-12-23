@@ -44,7 +44,7 @@ public class Postagem implements Serializable {
     private Set<Comentario> comentarios = new HashSet<>();    // uma postagem tem varios comentarios
 
    @JsonIgnore
-   @ManyToOne (optional = false) // impede persistir sem um relacionamento associado
+   @ManyToOne //(optional = false) // impede persistir sem um relacionamento associado  -> preciso mudar o construtor
    @JoinColumn(name = "id_usuario")
    private Usuario usuario;
     

@@ -1,5 +1,5 @@
 
-package br.ufsc.curso.SpringBoot_Postagem.Teste;
+package br.ufsc.curso.SpringBoot_Postagem.Util;
 
 import br.ufsc.curso.SpringBoot_Postagem.Entities.*;
 import br.ufsc.curso.SpringBoot_Postagem.Repositories.*;
@@ -55,7 +55,7 @@ public class Setup implements CommandLineRunner{
          //adicionando usuario
 
     
-         Usuario ed2 = new Usuario(null, "Daniel Ventura","@daniel", "123mudar"); 
+       Usuario ed2 = new Usuario(null, "Daniel Ventura","@daniel", "123mudar"); 
        Usuario ed1 = new Usuario(null, "Rafael Ventura","@arquimedes", "123mudar"); 
        Usuario ed3 = new Usuario(null, "Laura Bender","@l23", "123mudar"); 
        
@@ -64,13 +64,13 @@ public class Setup implements CommandLineRunner{
 
     //associando usuarioes com postagens
     
-      //  post1.setUsuario(ed1);
-     //   post2.setUsuario(ed1);
-     //   post3.setUsuario(ed3);
-      //  post4.setUsuario(ed3);
-      //  post5.setUsuario(ed2);
+       post1.setUsuario(ed1);
+       post2.setUsuario(ed1);
+       post3.setUsuario(ed3);
+       post4.setUsuario(ed3);
+       post5.setUsuario(ed2);
         
-     //postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
+     postagemRepository.saveAll(Arrays.asList(post1,post2,post3,post4,post5)); //salvando tudo
 
       
         
