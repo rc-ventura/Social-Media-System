@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Profile;
  */
 
 @Configuration
-@Profile("test")
+@Profile("production")
 public class Setup implements CommandLineRunner{
 
     //dependency injection
